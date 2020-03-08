@@ -17,8 +17,9 @@
     client.subscribe("mqtt/demo")
   
     client.on("message", function (topic, payload) {
-      alert([topic, payload].join(": "))
-      client.end()
+      if (topic === "ican/fire") {
+        alert("fire")
+      }
     })
   
     client.publish("mqtt/demo", "hello world!")
