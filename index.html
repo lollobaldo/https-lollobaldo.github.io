@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script>
+    const client = mqtt.connect({
+        host: 'm21.cloudmqtt.com',
+        port: 36973,
+        username: 'bisavwqs',
+        password: 'gspBl5b8VeTt',
+        timeout: 3,
+        // onSuccess: onConnect,
+        useSSL: true,
+    });
+
+
+    client.on('connect', function () {
+      alert("Connected")
+    });
+  
+    client.on("message", function (topic, payload) {
+      alert([topic, payload].join(": "))
+    });
+  
+    client.publish("mqtt/demo", "hello world!");
+</script>
+<style>
+    html, body { height: 100%; }
+
+    .prog {
+        height: 100%;
+        width: 100%;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+</style>
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>iCan</h1>
+  <h3>Make a difference</h3>
+</header>
+
+<div class="w3-container prog">
+  70%
+</div>
+<footer class="w3-container w3-teal">
+  <h5>Footer</h5>
+  <p>Footer information goes here</p>
+</footer>
+
+</body>
+</html>
