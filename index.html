@@ -14,7 +14,7 @@
 
     const client = mqtt.connect("mqtts://bisavwqs:gspBl5b8VeTt@m21.cloudmqtt.com:36973")
 
-    client.subscribe("mqtt/demo")
+    client.subscribe("ican/fire")
   
     client.on("message", function (topic, payload) {
         console.log({topic, payload});
