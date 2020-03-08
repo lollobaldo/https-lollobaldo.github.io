@@ -5,13 +5,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script>
-    // const client = mqtt.connect({
-    //     host: 'm21.cloudmqtt.com',
-    //     port: 16973,
-    //     username: 'bisavwqs',
-    //     password: 'gspBl5b8VeTt'
-    // });
-
     const client = mqtt.connect("mqtts://bisavwqs:gspBl5b8VeTt@m21.cloudmqtt.com:36973")
 
     client.subscribe("ican/fire")
@@ -19,7 +12,9 @@
     client.on("message", function (topic, payload) {
         console.log({topic, payload});
       if (topic === "ican/fire") {
-        alert("fire")
+
+        console.log("fire")
+        document.getElementById("fireal").style.display = "block";
       }
     })
   
@@ -31,6 +26,10 @@
         height: 100%;
         width: 100%;
     }
+    img {
+      width: 80%;
+      display: hidden;
+    }
 </style>
 <body>
 
@@ -41,9 +40,8 @@
 
 <div class="w3-container w3-middle w3-central">
     70%
-    <img src=fire.jpg />
+    <img src=fire.jpg id="fireal" />
 </div>
-
 
 <footer class="w3-container w3-teal">
   <h5>Footer</h5>
